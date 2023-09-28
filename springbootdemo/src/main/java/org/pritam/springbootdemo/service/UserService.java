@@ -53,5 +53,10 @@ public class UserService {
 	public List<User> getUsersByLastName(String lastName){
 		return userRepository.findByLastName(lastName);
 	}
+	
+	@Transactional
+	public List<User> getAllUsersBetweenIdRange(int start, int end){
+		return userRepository.findAllUsersBetweenIdRange(start, end);
+	}
 
 }
