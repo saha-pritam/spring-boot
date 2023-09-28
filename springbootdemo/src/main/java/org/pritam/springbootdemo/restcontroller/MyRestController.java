@@ -31,4 +31,9 @@ public class MyRestController {
 	public User saveUser(@RequestBody User user){
 		return userService.saveUser(user);
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/updateUser")
+	public User updateUser(@RequestBody User user){
+		return userService.updateUser(user);
+	}
 }
