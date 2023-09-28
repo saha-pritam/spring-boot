@@ -32,5 +32,10 @@ public class UserService {
 	public Iterable<User> getAllUsers(){
 		return userRepository.findAll();
 	}
+	
+	@Transactional
+	public User updateUser(User user) {
+		return saveUser(user);
+	}
 
 }

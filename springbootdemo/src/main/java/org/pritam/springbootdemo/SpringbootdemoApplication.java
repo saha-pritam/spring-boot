@@ -14,10 +14,7 @@ public class SpringbootdemoApplication {
 		UserService userService = context.getBean(UserService.class);
 		
 		User user = userService.getUserById(5);
-		System.out.println("Output from getUserById :- "+user);
-		
-		Iterable<User> users = userService.getAllUsers();
-		users.forEach(System.out::println);
+		user.setLastName("Roy Choudhury");
+		userService.updateUser(user);
 	}
-
 }
