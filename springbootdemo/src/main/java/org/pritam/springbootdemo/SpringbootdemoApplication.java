@@ -13,8 +13,7 @@ public class SpringbootdemoApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringbootdemoApplication.class, args);
 		UserService userService = context.getBean(UserService.class);
 		
-		User user = userService.getUserById(5);
-		user.setLastName("Roy Choudhury");
-		userService.updateUser(user);
+		userService.deleteUserById(5);
+		
 	}
 }
