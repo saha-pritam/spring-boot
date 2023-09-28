@@ -12,11 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class SpringbootdemoApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(SpringbootdemoApplication.class, args);
-		UserService userService = context.getBean(UserService.class);
-		
-		List<User> users = userService.getAllUsersBetweenIdRange(2, 5);
-		System.out.println(users);
+		SpringApplication.run(SpringbootdemoApplication.class, args);
 	}
 
 }
