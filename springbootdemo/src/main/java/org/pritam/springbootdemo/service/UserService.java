@@ -1,5 +1,6 @@
 package org.pritam.springbootdemo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.pritam.springbootdemo.entity.User;
@@ -46,6 +47,11 @@ public class UserService {
 	@Transactional
 	public void deleteAllUsers() {
 		userRepository.deleteAll();
+	}
+	
+	@Transactional
+	public List<User> getUsersByLastName(String lastName){
+		return userRepository.findByLastName(lastName);
 	}
 
 }
