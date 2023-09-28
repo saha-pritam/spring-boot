@@ -13,7 +13,7 @@ public class SpringbootdemoApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringbootdemoApplication.class, args);
 		UserService userService = context.getBean(UserService.class);
 		
-		userService.deleteUserById(5);
+		userService.deleteAllUsers();
 		
 	}
 }

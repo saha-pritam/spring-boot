@@ -42,4 +42,10 @@ public class UserService {
 	public void deleteUserById(int id) {
 		userRepository.deleteById(id);
 	}
+	
+	@Transactional
+	public void deleteAllUsers() {
+		userRepository.deleteAll();
+	}
+
 }
