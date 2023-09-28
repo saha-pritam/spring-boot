@@ -36,4 +36,14 @@ public class MyRestController {
 	public User updateUser(@RequestBody User user){
 		return userService.updateUser(user);
 	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllUsers")
+	public void deleteAllUsers(){
+		userService.deleteAllUsers();
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteUser/{id}")
+	public void deleteUser(@PathVariable("id") int id){
+		userService.deleteUserById(id);
+	}
 }
