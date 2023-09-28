@@ -12,4 +12,9 @@ public class MyControllerOne {
 	public String welcome() {
 		return "This is spring boot demo project";
 	}
+	
+	@RequestMapping(value = "/home",method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 }
