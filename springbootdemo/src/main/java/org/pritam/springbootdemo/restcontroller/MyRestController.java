@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.pritam.springbootdemo.model.Error;
 import org.pritam.springbootdemo.entity.User;
+import org.pritam.springbootdemo.service.AddressService;
 import org.pritam.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,8 @@ public class MyRestController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private AddressService addressService; 
 	
 	@GetMapping("/getAllUsers")
 	public ResponseEntity<Object> getAllUsers(){
@@ -47,13 +50,42 @@ public class MyRestController {
 	}
 	
 	@PostMapping("/saveUser")
-	public User saveUser(@RequestBody User user){
-		return userService.saveUser(user);
+	public ResponseEntity<Object> saveUser(@RequestBody User user){
+		if(user.getId()!=0 || user.getAddress().getId()!=0) {
+			Error error = new Error();
+			error.setDescription("Please don't pass userid or addressid attribute in the JSON body.");
+			error.setErrorCode(400);
+			return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+		}
+		user = userService.saveUser(user);
+		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
 	@PutMapping("/updateUser")
-	public User updateUser(@RequestBody User user){
-		return userService.updateUser(user);
+	public ResponseEntity<Object> updateUser(@RequestBody User user){
+		if(user.getId()==0 || user.getAddress().getId()==0) {
+			Error error = new Error();
+			error.setDescription("Please make sure that user id and address id are mentioned in JSON body with proper value.");
+			error.setErrorCode(400);
+			return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+		}
+		if(userService.isIdAvailable(user.getId())) {
+			int addressId = addressService.getAddressId(user.getId());
+			if(addressId==0 || addressId!=user.getAddress().getId()) {
+				Error error = new Error();
+				error.setDescription("Provided address id is not associated with given user id.");
+				error.setErrorCode(404);
+				return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+			}
+		}
+		else {
+			Error error = new Error();
+			error.setDescription("Provided user id is not available.");
+			error.setErrorCode(404);
+			return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+		}
+		user = userService.updateUser(user);
+		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deleteAllUsers")

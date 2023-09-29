@@ -58,5 +58,9 @@ public class UserService {
 	public List<User> getAllUsersBetweenIdRange(int start, int end){
 		return userRepository.findAllUsersBetweenIdRange(start, end);
 	}
-
+	
+	@Transactional
+	public boolean isIdAvailable(int id) {
+		return userRepository.findIdIfAvailable(id).isPresent();
+	}
 }
