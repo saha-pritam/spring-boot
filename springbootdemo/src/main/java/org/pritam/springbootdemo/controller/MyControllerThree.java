@@ -1,8 +1,10 @@
 package org.pritam.springbootdemo.controller;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +18,11 @@ public class MyControllerThree {
 	public ResponseEntity<Object> uploadImage(@RequestParam("imageFile") MultipartFile file){
 		try {
 			byte[] bytes = file.getBytes();
-			FileOutputStream fos = new FileOutputStream("F:\\SpringBoot-uploaded-images\\"+file.getOriginalFilename());
+			String absolutePath = new ClassPathResource("").getFile().getAbsolutePath() + "\\uploadedImages";
+			File f = new File(absolutePath);
+			if(!f.exists())
+				f.mkdir();
+			FileOutputStream fos = new FileOutputStream(absolutePath+"\\"+file.getOriginalFilename());
 			fos.write(bytes);
 			fos.close();
 		} catch (IOException e) {
