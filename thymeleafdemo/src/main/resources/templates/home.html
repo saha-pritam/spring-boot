@@ -8,7 +8,7 @@
 	<h1>The names are :- <span th:text="${list}"></span></h1>
 	<h3>Ordered Names list</h3>
 	<ol>
-		<li th:each="item:${list}"><span th:text="${item}"></span></li>
+		<li th:each="item:${list}"><span th:style="${true}? 'color:red':'color:black'" th:text="${item}"></span></li>
 	</ol>
 	<br>
 	<h3>Ordered Names list</h3>
