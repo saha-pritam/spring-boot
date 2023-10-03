@@ -5,11 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<div th:with="a=1,b=2,c=${message}">
-		<h1> a = <span th:text="${a}"></span></h1>
-		<h1> b = <span th:text="${b}"></span></h1>
-		<h1> a+b = <span th:text="${a+b}"></span></h1>
-		<h1> c = <span th:text="${c}"></span></h1>
-	</div>
+	<h1>The names are :- <span th:text="${list}"></span></h1>
+	<h3>Ordered Names list</h3>
+	<ol>
+		<li th:each="item:${list}"><span th:text="${item}"></span></li>
+	</ol>
+	<br>
+	<h3>Ordered Names list</h3>
+	<ul>
+		<li th:each="item,status:${list}"><span th:text="${item}+'==='+${status.index}+'==='+${status.count}+'==='+${status.size}+'==='+${status.odd}+'==='+${status.even}+'==='+${status.first}+'==='+${status.last}"></span></li>
+	</ul>
 </body>
 </html>
