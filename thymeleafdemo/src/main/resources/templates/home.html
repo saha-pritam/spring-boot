@@ -4,9 +4,12 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-	<h1>This is home page.</h1>
-	<h1 th:text="${'This is a direct message'}"></h1>
-	<h1 th:text="${message}"></h1>
+<body>	
+	<div th:with="a=1,b=2,c=${message}">
+		<h1> a = <span th:text="${a}"></span></h1>
+		<h1> b = <span th:text="${b}"></span></h1>
+		<h1> a+b = <span th:text="${a+b}"></span></h1>
+		<h1> c = <span th:text="${c}"></span></h1>
+	</div>
 </body>
 </html>
