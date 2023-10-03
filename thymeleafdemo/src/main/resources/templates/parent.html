@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="fragment(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<hr>
+	<div th:include="${content}">
+		<p>This is the parent</p>
+	</div>
+</body>
+</html>
