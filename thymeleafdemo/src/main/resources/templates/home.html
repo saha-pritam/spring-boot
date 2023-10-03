@@ -13,7 +13,7 @@
 	<br>
 	<h3>Ordered Names list</h3>
 	<ul>
-		<li th:each="item,status:${list}"><span th:text="${item}+'==='+${status.index}+'==='+${status.count}+'==='+${status.size}+'==='+${status.odd}+'==='+${status.even}+'==='+${status.first}+'==='+${status.last}"></span></li>
+		<li th:each="item,status:${list}"><span th:text="${#strings.toUpperCase(item)}+'==='+${status.index}+'==='+${status.count}+'==='+${status.size}+'==='+${status.odd}+'==='+${status.even}+'==='+${status.first}+'==='+${status.last}"></span></li>
 	</ul>
 </body>
 </html>
