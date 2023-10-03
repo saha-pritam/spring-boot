@@ -5,15 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<h1>The names are :- <span th:text="${list}"></span></h1>
-	<h3>Ordered Names list</h3>
-	<ol>
-		<li th:each="item:${list}"><span th:style="${true}? 'color:red':'color:black'" th:text="${item}"></span></li>
-	</ol>
-	<br>
-	<h3>Ordered Names list</h3>
-	<ul>
-		<li th:each="item,status:${list}"><span th:text="${#strings.toUpperCase(item)}+'==='+${status.index}+'==='+${status.count}+'==='+${status.size}+'==='+${status.odd}+'==='+${status.even}+'==='+${status.first}+'==='+${status.last}"></span></li>
-	</ul>
+	<h1 th:text="${error1}?'error1 is true':'error1 is false'"></h1>
+	<h1 th:text="${error2}?'error2 is true':'error2 is false'"></h1>
 </body>
 </html>

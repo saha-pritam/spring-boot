@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MyController {
 	@GetMapping("/")
 	public String home(Model model) {
-		List<String> l = List.of("Pritam","Aditya","Gunjan","Agniva","Shitij","Nilesh");
-		model.addAttribute("list", l);
+		boolean error1 = false;
+		boolean error2 = true;
+		model.addAttribute("error1", error1);
+		model.addAttribute("error2", error2);
 		return "home";
 	}
 }
