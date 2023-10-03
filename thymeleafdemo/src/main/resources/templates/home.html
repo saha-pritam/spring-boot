@@ -5,7 +5,10 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<h1 th:text="${error1}?'error1 is true':'error1 is false'"></h1>
-	<h1 th:text="${error2}?'error2 is true':'error2 is false'"></h1>
+	<h1 th:if="${error1}">error1 is true.</h1>
+	<h1 th:unless="${error1}">error1 is false.</h1>
+	
+	<h1 th:if="${error2}">error2 is true.</h1>
+	<h1 th:unless="${error2}">error2 is false.</h1>
 </body>
 </html>
