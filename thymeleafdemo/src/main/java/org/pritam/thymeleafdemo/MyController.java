@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MyController {
 	@GetMapping("/")
 	public String home(Model model) {
-		int caseVal=10;
-		model.addAttribute("caseVal", caseVal);
+		String name1 = "Pritam";
+		String name2 = "Soumi";
+		String name3 = "Sourav";
+		model.addAttribute("name1", name1);
+		model.addAttribute("name2", name2);
+		model.addAttribute("name3", name3);
 		return "home";
 	}
 }

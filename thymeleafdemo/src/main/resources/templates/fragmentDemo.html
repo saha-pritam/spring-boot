@@ -5,16 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<div id="divFromFragmentDemo1" th:fragment="fragment1">
+	<div id="divFromFragmentDemo1" th:fragment="fragment1(parameter)">
 		<p>This is fragement1 from fragmentDemo.html</p>
+		<p>Parameter passed is <span th:text="${parameter}"></span></p>
 	</div>
 	
-	<div id="divFromFragmentDemo2" th:fragment="fragment2">
+	<div id="divFromFragmentDemo2" th:fragment="fragment2(parameter)">
 		<p>This is fragement2 from fragmentDemo.html</p>
+		<p>Parameter passed is <span th:text="${parameter}"></span></p>
 	</div>
 	
-	<div id="divFromFragmentDemo3" th:fragment="fragment3">
+	<div id="divFromFragmentDemo3" th:fragment="fragment3(parameter)">
 		<p>This is fragement3 from fragmentDemo.html</p>
+		<p>Parameter passed is <span th:text="${parameter}"></span></p>
 	</div>
 </body>
 </html>

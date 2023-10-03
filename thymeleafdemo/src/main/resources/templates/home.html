@@ -5,15 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<div id="div1" th:replace="fragmentDemo::fragment1">
+	<div id="div1" th:replace="fragmentDemo::fragment1(${name1})">
 		<p>This is just a simple paragraph</p>
 	</div>
 	
-	<div id="div2" th:insert="fragmentDemo::fragment2">
+	<div id="div2" th:insert="fragmentDemo::fragment2(${name2})">
 		<p>This is just a simple paragraph</p>
 	</div>
 	
-	<div id="div3" th:include="fragmentDemo::fragment3">
+	<div id="div3" th:include="fragmentDemo::fragment3(${name3})">
 		<p>This is just a simple paragraph</p>
 	</div>
 </body>
